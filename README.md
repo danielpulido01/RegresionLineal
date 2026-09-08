@@ -1,6 +1,6 @@
 # Regresión lineal con NumPy
 
-El notebook [main.ipynb](main.ipynb) explora `Student_Performance.csv` e implementa
+El notebook [main.ipynb](main.ipynb) carga desde [Kaggle el dataset Student Performance](https://www.kaggle.com/datasets/nikhil7280/student-performance-multiple-linear-regression/data) e implementa
 regresión lineal con actualización manual de los parámetros:
 `beta = beta - alpha * (X.T @ (X @ beta - y) / len(y))`.
 
@@ -31,6 +31,13 @@ python -m jupyterlab main.ipynb
 
 Seleccionar el entorno `.venv` y ejecutar todas las celdas en orden. El notebook
 contiene toda la implementación; no requiere `scikit-learn`.
+
+La lectura usa `kagglehub.dataset_load` con el adaptador de pandas y la versión 1
+del dataset para reproducir los experimentos. No necesitas descargar el CSV
+manualmente ni colocarlo en `data/`: KaggleHub lo descarga automáticamente y
+conserva una copia en su caché local (`~/.cache/kagglehub/`). La primera carga
+requiere Internet. Puedes cambiar la ubicación con la variable `KAGGLEHUB_CACHE`.
+Consulta la [documentación oficial de KaggleHub](https://github.com/Kaggle/kagglehub#load-dataset).
 
 Para verificar el gradiente, la convergencia y el manejo de minilotes:
 
